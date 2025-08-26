@@ -1,0 +1,235 @@
+[*] Compiling AFL++ for OS Linux on ARCH x86_64
+[+] ZLIB detected
+[*] Checking for the default compiler cc...
+[*] Testing the PATH environment variable...
+[*] Checking for the ability to compile x86 code...
+[+] shmat seems to be working.
+[+] Python 3.8.10 support seems to be working.
+[+] Everything seems to be working, ready to compile. (cc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0)
+make -j32 -f GNUmakefile.llvm
+make[1]: Entering directory '/home/acesrc/git/AFLpluspluswithNisse'
+[+] llvm_mode detected llvm 10+, enabling neverZero implementation and c++14
+[+] llvm_mode detected llvm 16+, enabling c++17
+[+] llvm_mode detected llvm 12+, enabling afl-lto LTO implementation
+GNUmakefile.llvm:257: clang option -flto is not working - maybe LLVMgold.so not found - cannot enable LTO mode
+[+] shmat seems to be working.
+[*] Checking for working 'llvm-config'...
+[*] Checking for working '/home/acesrc/git/llvm-project-17.0.6.src/build_ninja/bin/clang'...
+[*] Checking for matching versions of '/home/acesrc/git/llvm-project-17.0.6.src/build_ninja/bin/clang' and 'llvm-config'
+[*] We have llvm-config version 17.0.6 with a clang version 17.0.6, good.
+[*] Checking for './afl-showmap'...
+[+] All set and ready to build.
+[*] Testing the CC wrapper and instrumentation output...
+unset AFL_USE_ASAN AFL_USE_MSAN AFL_INST_RATIO AFL_LLVM_ALLOWLIST AFL_LLVM_DENYLIST; ASAN_OPTIONS=detect_leaks=0 AFL_QUIET=1 AFL_PATH=. AFL_LLVM_LAF_ALL=1 ./afl-cc -O3 -funroll-loops -fPIC -Wall -g -Wno-cast-qual -Wno-variadic-macros -Wno-pointer-sign -I ./include/ -I ./instrumentation/ -DAFL_PATH=\"/usr/local/lib/afl\" -DBIN_PATH=\"/usr/local/bin\" -DLLVM_BINDIR=\"/home/acesrc/git/llvm-project-17.0.6.src/build_ninja/bin\" -DVERSION=\"++4.31a\" -DLLVM_LIBDIR=\"/home/acesrc/git/llvm-project-17.0.6.src/build_ninja/lib\" -DLLVM_VERSION=\"17.0.6\" -DAFL_CLANG_FLTO=\"\" -DAFL_REAL_LD=\"\" -DAFL_CLANG_LDPATH=\"\" -DAFL_CLANG_FUSELD=\"\" -DCLANG_BIN=\"/home/acesrc/git/llvm-project-17.0.6.src/build_ninja/bin/clang\" -DCLANGPP_BIN=\"/home/acesrc/git/llvm-project-17.0.6.src/build_ninja/bin/clang++\" -DUSE_BINDIR=1 -Wno-unused-function -fdebug-prefix-map="/home/acesrc/git/AFLpluspluswithNisse=llvm_mode" -Wno-deprecated  ./test-instr.c -o test-instr 
+Analysis Run!
+Hallo: main
+  : 0x55bfc8b37fe0
+  : 0x55bfc8c10d20
+  : 0x55bfc8c10dc0
+  : 0x55bfc8ba4510
+  : 0x55bfc8c116a0
+  : 0x55bfc8ba4560
+  : 0x55bfc8ba78e0
+  : 0x55bfc8ba45b0
+  : 0x55bfc8ba9bc0
+  : 0x55bfc8ba43d0
+  : 0x55bfc8c10820
+  : 0x55bfc8c11600
+  : 0x55bfc8bed760
+  : 0x55bfc8c114c0
+  : 0x55bfc8c11650
+  : 0x55bfc8c1d210
+  : 0x55bfc8c1d690
+  : 0x55bfc8c10d70
+  : 0x55bfc8c1d870
+  : 0x55bfc8c1f780
+  : 0x55bfc8c1f7d0
+  : 0x55bfc8bc5ce0
+  : 0x55bfc8c21ff0
+  : 0x55bfc8c223e0
+  : 0x55bfc8c21eb0
+  : 0x55bfc8c1eed0
+  : 0x55bfc8ba4470
+  : 0x55bfc8ba46a0
+  : 0x55bfc8ba8240
+  : 0x55bfc8ba46f0
+  : 0x55bfc8ba44c0
+F has block: 0x55bfc8b37fe0
+F has block: 0x55bfc8c10d20
+F has block: 0x55bfc8c10dc0
+F has block: 0x55bfc8ba4510
+F has block: 0x55bfc8c116a0
+F has block: 0x55bfc8ba4560
+F has block: 0x55bfc8ba78e0
+F has block: 0x55bfc8ba45b0
+F has block: 0x55bfc8ba9bc0
+F has block: 0x55bfc8ba43d0
+F has block: 0x55bfc8c10820
+F has block: 0x55bfc8c11600
+F has block: 0x55bfc8bed760
+F has block: 0x55bfc8c114c0
+F has block: 0x55bfc8c11650
+F has block: 0x55bfc8c1d210
+F has block: 0x55bfc8c1d690
+F has block: 0x55bfc8c10d70
+F has block: 0x55bfc8c1d870
+F has block: 0x55bfc8c1f780
+F has block: 0x55bfc8c1f7d0
+F has block: 0x55bfc8bc5ce0
+F has block: 0x55bfc8c21ff0
+F has block: 0x55bfc8c223e0
+F has block: 0x55bfc8c21eb0
+F has block: 0x55bfc8c1eed0
+F has block: 0x55bfc8ba4470
+F has block: 0x55bfc8ba46a0
+F has block: 0x55bfc8ba8240
+F has block: 0x55bfc8ba46f0
+F has block: 0x55bfc8ba44c0
+SIZE##:main:12
+HI!
+Sending index: 0
+Entering Insert IncrFn
+Simple!
+Sending index: 1
+Entering Insert IncrFn
+Simple!
+Sending index: 2
+Entering Insert IncrFn
+Simple!
+Sending index: 3
+Entering Insert IncrFn
+Simple!
+Sending index: 4
+Entering Insert IncrFn
+Simple!
+Sending index: 5
+Entering Insert IncrFn
+Simple!
+Sending index: 6
+Entering Insert IncrFn
+Simple!
+Sending index: 7
+Entering Insert IncrFn
+Simple!
+Sending index: 8
+Entering Insert IncrFn
+Simple!
+Sending index: 9
+Entering Insert IncrFn
+Simple!
+Sending index: 10
+Entering Insert IncrFn
+Simple!
+Sending index: 11
+Entering Insert IncrFn
+Simple!
+End!-------------------------------------------------------------
+ASAN_OPTIONS=detect_leaks=0 ./afl-showmap -m none -q -o .test-instr0 ./test-instr < /dev/null
+echo 1 | ASAN_OPTIONS=detect_leaks=0 ./afl-showmap -m none -q -o .test-instr1 ./test-instr
+[+] All right, the instrumentation seems to be working!
+[+] All done! You can now use './afl-cc' to compile programs.
+make[1]: Leaving directory '/home/acesrc/git/AFLpluspluswithNisse'
+make -f GNUmakefile.gcc_plugin
+make[1]: Entering directory '/home/acesrc/git/AFLpluspluswithNisse'
+[+] shmat seems to be working.
+[*] Checking for working 'cc'...
+[*] Checking for gcc plugin development header files...
+[-] Oops, can't find gcc header files. Be sure to install 'gcc-X-plugin-dev'.
+make[1]: *** [GNUmakefile.gcc_plugin:127: test_deps] Error 1
+make[1]: Leaving directory '/home/acesrc/git/AFLpluspluswithNisse'
+make: [GNUmakefile:353: gcc_plugin] Error 2 (ignored)
+[*] Testing the CC wrapper afl-cc and its instrumentation output...
+Analysis Run!
+Hallo: main
+  : 0x55be20565250
+  : 0x55be20651e40
+  : 0x55be20651ee0
+  : 0x55be205ff440
+  : 0x55be20652740
+  : 0x55be2056ddc0
+  : 0x55be206526a0
+  : 0x55be205ff3f0
+  : 0x55be206525e0
+  : 0x55be206526f0
+  : 0x55be2065d060
+  : 0x55be2065d4e0
+  : 0x55be20651e90
+  : 0x55be205ff3a0
+  : 0x55be2065f660
+  : 0x55be2065f6b0
+  : 0x55be20661ae0
+  : 0x55be20661ed0
+  : 0x55be206616d0
+  : 0x55be2065edb0
+F has block: 0x55be20565250
+F has block: 0x55be20651e40
+F has block: 0x55be20651ee0
+F has block: 0x55be205ff440
+F has block: 0x55be20652740
+F has block: 0x55be2056ddc0
+F has block: 0x55be206526a0
+F has block: 0x55be205ff3f0
+F has block: 0x55be206525e0
+F has block: 0x55be206526f0
+F has block: 0x55be2065d060
+F has block: 0x55be2065d4e0
+F has block: 0x55be20651e90
+F has block: 0x55be205ff3a0
+F has block: 0x55be2065f660
+F has block: 0x55be2065f6b0
+F has block: 0x55be20661ae0
+F has block: 0x55be20661ed0
+F has block: 0x55be206616d0
+F has block: 0x55be2065edb0
+SIZE##:main:8
+HI!
+Sending index: 0
+Entering Insert IncrFn
+Simple!
+Sending index: 1
+Entering Insert IncrFn
+Simple!
+Sending index: 2
+Entering Insert IncrFn
+Simple!
+Sending index: 3
+Entering Insert IncrFn
+Simple!
+Sending index: 4
+Entering Insert IncrFn
+Simple!
+Sending index: 5
+Entering Insert IncrFn
+Simple!
+Sending index: 6
+Entering Insert IncrFn
+Simple!
+Sending index: 7
+Entering Insert IncrFn
+Simple!
+End!-------------------------------------------------------------
+ASAN_OPTIONS=detect_leaks=0 ./afl-showmap -q -m none -o .test-instr0 ./test-instr < /dev/null
+echo 1 | ASAN_OPTIONS=detect_leaks=0 ./afl-showmap -m none -q -o .test-instr1 ./test-instr
+
+[+] All right, the instrumentation of afl-cc seems to be working!
+[+] Main compiler 'afl-cc' successfully built!
+[+] LLVM mode for 'afl-cc' successfully built!
+[-] LLVM LTO mode for 'afl-cc'  failed to build, this would need LLVM 11+, see instrumentation/README.lto.md how to build it
+[-] gcc_plugin for 'afl-cc'  failed to build, unless you really need it that is fine - or read instrumentation/README.gcc_plugin.md how to build it
+[+] All done! Be sure to review the README.md - it's pretty short and useful.
+make -C utils/aflpp_driver
+make[1]: Entering directory '/home/acesrc/git/AFLpluspluswithNisse/utils/aflpp_driver'
+Note: Optional aflpp_qemu_driver_hook.o not built.
+Note: Optional aflpp_qemu_driver_hook.so not built.
+make[1]: Leaving directory '/home/acesrc/git/AFLpluspluswithNisse/utils/aflpp_driver'
+
+
+
+
+Build Summary:
+[+] afl-fuzz and supporting tools successfully built
+[+] LLVM basic mode successfully built
+[+] LLVM mode successfully built
+[-] LLVM LTO mode could not be built, it is optional, if you want it, please install LLVM and LLD 11+. More information at instrumentation/README.lto.md on how to build it
+[-] gcc_mode could not be built, it is optional, install gcc-VERSION-plugin-dev to enable this
+

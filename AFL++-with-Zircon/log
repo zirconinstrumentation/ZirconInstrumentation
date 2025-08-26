@@ -1,0 +1,28 @@
+
+test.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._Z3fooiPi:
+
+0000000000000000 <_Z3fooiPi>:
+   0:	fe 05 00 00 00 00    	incb   0x0(%rip)        # 6 <_Z3fooiPi+0x6>
+   6:	85 ff                	test   %edi,%edi
+   8:	7e 16                	jle    20 <_Z3fooiPi+0x20>
+   a:	fe 05 00 00 00 00    	incb   0x0(%rip)        # 10 <_Z3fooiPi+0x10>
+  10:	89 fa                	mov    %edi,%edx
+  12:	48 c1 e2 02          	shl    $0x2,%rdx
+  16:	48 89 f7             	mov    %rsi,%rdi
+  19:	31 f6                	xor    %esi,%esi
+  1b:	e9 00 00 00 00       	jmpq   20 <_Z3fooiPi+0x20>
+  20:	fe 05 00 00 00 00    	incb   0x0(%rip)        # 26 <_Z3fooiPi+0x26>
+  26:	c3                   	retq   
+
+Disassembly of section .text.sancov.module_ctor_8bit_counters:
+
+0000000000000000 <sancov.module_ctor_8bit_counters>:
+   0:	50                   	push   %rax
+   1:	48 8b 3d 00 00 00 00 	mov    0x0(%rip),%rdi        # 8 <sancov.module_ctor_8bit_counters+0x8>
+   8:	48 8b 35 00 00 00 00 	mov    0x0(%rip),%rsi        # f <sancov.module_ctor_8bit_counters+0xf>
+   f:	e8 00 00 00 00       	callq  14 <sancov.module_ctor_8bit_counters+0x14>
+  14:	58                   	pop    %rax
+  15:	c3                   	retq   
